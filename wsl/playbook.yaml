@@ -8,6 +8,5 @@
     - packages
     - shell
     - workspace
-    - ops
   ### Change to your user! ###
   user: chase

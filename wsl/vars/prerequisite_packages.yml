@@ -5,3 +5,7 @@ prerequisite_packages:
   - curl
   - tmux
   - unzip
+  - build-essential
+  - cmake
+  - python3-dev
+  - golang
