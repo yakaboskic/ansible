@@ -1,6 +1,6 @@
 ---
 - name: Create a repo directory if it does not exist
   file:
-    path: {{ lookup("env", "HOME") }}/{{ repo_directory }}
+    path: ~/{{ repo_directory }}
     state: directory
     mode: '0755'

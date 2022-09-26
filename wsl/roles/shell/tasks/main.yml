@@ -3,13 +3,19 @@
   shell: | 
     git clone git@github.com:{{ dotfiles_repo }}.git admin
   args:
-    chdir: {{ lookup("env", "HOME")}}/{{ repo_directory }}
+    chdir: ~/{{ repo_directory }}
 
-- name: Pull and install latest dot-files
+- name: Pull latest dot-files
   shell: |
     git checkout {{ dotfiles_branch }}
     git pull
-    {{ dotfiles_command }}
-    vim +'PlugInstall --sync' +qa
-    args:
-      chdir: {{ lookup("env", "HOME") }}/{{ repo_directory }}/admin
+  args:
+    chdir: ~/{{ repo_directory }}/admin
+
+- name: Install  dot-files
+  shell: "{{ dotfiles_command }}"
+  args:
+    chdir: ~/{{ repo_directory }}/admin
+
+- name: Run VIM installation
+  shell: vim +'PlugInstall --sync' +qa
