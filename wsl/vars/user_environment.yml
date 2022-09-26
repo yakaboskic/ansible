@@ -1,0 +1,7 @@
+---
+user: chase
+repo_directory: src
+dotfiles_repo: yakaboskic/admin
+dotfiles_branch: master
+dotfiles_command: sh install-wsl.sh
+ubuntu_version: jammy

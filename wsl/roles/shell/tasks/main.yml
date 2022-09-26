@@ -1,0 +1,15 @@
+---
+- name: Clone dot-files
+  shell: | 
+    git clone git@github.com:{{ dotfiles_repo }}.git admin
+  args:
+    chdir: {{ lookup("env", "HOME")}}/{{ repo_directory }}
+
+- name: Pull and install latest dot-files
+  shell: |
+    git checkout {{ dotfiles_branch }}
+    git pull
+    {{ dotfiles_command }}
+    vim +'PlugInstall --sync' +qa
+    args:
+      chdir: {{ lookup("env", "HOME") }}/{{ repo_directory }}/admin
